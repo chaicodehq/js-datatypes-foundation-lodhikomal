@@ -46,10 +46,19 @@
  *   splitAndJoinRangoli("red,blue", ",", "-")  // => "red-blue"
  */
 export function repeatPattern(pattern, times) {
+  if (typeof pattern !== "string" || times <= 0) return ""
+  else {
+    return pattern.repeat(times)
+  }
   // Your code here
 }
 
 export function extractRangoliCenter(design, start, end) {
+  if (typeof design !== "string" || !start || !end) return "";
+  else {
+    const center = design.slice(start, end)
+    return center
+  }
   // Your code here
 }
 

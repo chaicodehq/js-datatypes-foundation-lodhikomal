@@ -46,21 +46,92 @@
  *   hasSpecialIngredient("Elaichi Chai", "elaichi")  // => true
  */
 export function getChaiOrderLength(order) {
-  // Your code here
+  if (typeof (order) !== "string") {
+    return -1
+
+  }
+  else {
+    const result = order.trim().length
+    return result;
+
+  }
 }
 
 export function shoutChaiOrder(order) {
-  // Your code here
+  if (typeof order !== "string") {
+    return ""
+  }
+  else {
+    const result = order.trim()
+    if (result.length === 0) {
+      return ""
+    }
+    else {
+      return result.toUpperCase()
+    }
+
+
+  }
 }
 
 export function whisperChaiOrder(order) {
-  // Your code here
+  if (typeof order !== "string") {
+    return ""
+  }
+  else {
+    const result = order.trim()
+    if (result.length === 0) {
+      return ""
+    }
+    else {
+      return result.toLowerCase()
+    }
+
+
+  }
 }
+// hasSpecialIngredient(order, ingredient)
+//   * - Check karo ki order mein koi special ingredient hai ya nahi
+//     * - Dono ko.toLowerCase() karo, phir.includes() use karo
+//       * - Agar koi bhi string nahi hai, return false
+//         * - Example: hasSpecialIngredient("Elaichi Masala Chai", "elaichi") => true
+//           *
 
 export function hasSpecialIngredient(order, ingredient) {
+
+  if (!ingredient) return false;
+
+  return (order.toString().toLowerCase()).includes(ingredient?.toString()?.toLowerCase())
+
+
+
+
   // Your code here
+
 }
 
 export function getFirstAndLastChar(order) {
-  // Your code here
+
+  if (typeof order !== "string") {
+    return null
+  }
+  else {
+    const result = order.trim()
+    if ((result.length === 0) || (typeof result !== "string")) {
+      return null
+    }
+    else {
+      const trimmed = order.trim()
+
+      const first = trimmed.charAt(0)
+      const last = trimmed.at(-1)
+
+      return { first, last }
+    }
+
+
+  }
+
+
+
 }

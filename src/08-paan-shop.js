@@ -47,14 +47,40 @@
  */
 export function createPaanOrder(basePaan, customizations) {
   // Your code here
+  if (typeof basePaan !== "object" || basePaan === null) {
+    return {}
+  }
+  if (typeof customizations !== "object") {
+    return { ...basePaan };
+  }
+  ;
+  const newOrder = Object.assign({ ...basePaan }, customizations)
+  return newOrder;
+
 }
 
 export function freezeMenu(menu) {
   // Your code here
+  if (typeof menu !== "object" || menu === null) {
+    return {}
+  }
+  const freeze = Object.freeze(menu)
+  return freeze;
 }
+//  * 3. updatePrices(menu, increase)
+//   * - Object.entries() se[key, value] pairs lo
+//     * - Har price mein increase add karo
+//       * - Object.fromEntries() se wapas object banao
+//         * - Return: NEW object(original mat badlo!)
+//           * - Agar menu object nahi hai ya increase number nahi hai, return {}
+//             * - Example: updatePrices({ meetha: 30, saada: 20 }, 10) => { meetha: 40, saada: 30 }
 
 export function updatePrices(menu, increase) {
   // Your code here
+  if (typeof menu !== "object" || increase !== "number") {
+    return {}
+  }
+
 }
 
 export function mergeDailySpecials(regularMenu, specialsMenu) {

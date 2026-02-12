@@ -46,7 +46,8 @@
  *   splitAndJoinRangoli("red,blue", ",", "-")  // => "red-blue"
  */
 export function repeatPattern(pattern, times) {
-  if (typeof pattern !== "string" || times <= 0) return ""
+
+  if (typeof pattern !== "string" || times <= 0 || !Number.isInteger(times)) return ""
   else {
     return pattern.repeat(times)
   }
@@ -54,7 +55,7 @@ export function repeatPattern(pattern, times) {
 }
 
 export function extractRangoliCenter(design, start, end) {
-  if (typeof design !== "string" || !start || !end) return "";
+  if (typeof design !== "string" || start < 0 || end < 0) return "";
   else {
     const center = design.slice(start, end)
     return center
@@ -64,12 +65,38 @@ export function extractRangoliCenter(design, start, end) {
 
 export function splitAndJoinRangoli(colorString, oldSep, newSep) {
   // Your code here
+  if (typeof colorString !== "string") {
+    return ""
+  }
+  const getNewPattern = (colorString).split(oldSep).join(newSep)
+  return getNewPattern;
+
 }
+
 
 export function replaceRangoliColor(design, oldColor, newColor) {
   // Your code here
+  if (typeof design !== "string" || typeof oldColor !== "string" || typeof newColor !== "string") {
+    return ""
+  }
+  // else if (oldColor.length === 0 || newColor === 0) {
+  //   return;
+  // }
+
+  const replaceColor = design.replaceAll(oldColor, newColor)
+
+  return replaceColor;
+
 }
 
+
 export function makeRangoliBorder(char, length) {
-  // Your code here
+  // Your code here 
+  if (typeof char !== "string" || length <= 0) {
+    return ""
+  }
+  const getlength = char.repeat(8)
+  const getBorder = getlength.slice(0, length)
+  return getBorder;
+
 }
